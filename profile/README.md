@@ -1,135 +1,92 @@
-# Fulfill'd
+<p align="center">
+  <img src="https://img.shields.io/badge/Fulfill'd-Reducing%20Food%20Waste-22c55e?style=for-the-badge&labelColor=0f172a" alt="Fulfill'd — Reducing Food Waste" />
+</p>
 
-> Because America doesn't have a food production problem. It has a "we throw away 40% of it" problem.
+<h1 align="center">Fulfill'd, Inc.</h1>
 
-**Fulfill'd, Inc.** — Anonymized B2B marketplace for perishable food distributors. Built on [Frappe Framework](https://github.com/frappe/frappe) + [ERPNext](https://github.com/frappe/erpnext), white-labeled top to bottom.
+<p align="center">
+  <strong>Anonymized B2B Marketplace for Perishable Food Distribution</strong><br/>
+  <em>Because America doesn't have a food production problem. It has a "we throw away 40% of it" problem.</em>
+</p>
 
----
-
-## What Is This
-
-A custom [Frappe app](https://frappeframework.com/docs/user/en/basics/apps) that extends ERPNext with marketplace functionality for perishable food distribution. Vendors list inventory anonymously. Buyers search, add to cart (15-minute hold), and checkout via Stripe. Vendor identity is revealed only after payment clears. The system prioritizes products by nearest expiry date (FIFO) to reduce food waste.
-
-### Key Features
-
-- **Anonymized Marketplace** — Vendor identity hidden until payment confirms
-- **15-Minute Cart Hold** — Products reserved on add-to-cart, auto-released on timeout
-- **FIFO by Expiry** — Nearest-to-expire products surface first
-- **Stripe Connect** — Marketplace payment splits (we take a transaction fee)
-- **Read-Only ERP Integration** — Syncs inventory from vendor ERPs (Canopy, MYOB) without writing back
-- **Full White-Label** — Zero Frappe/ERPNext branding visible to end users
-- **PWA Mobile** — Save-to-homescreen, no native app needed
+<p align="center">
+  <a href="https://fulfilld.com"><img src="https://img.shields.io/badge/Website-fulfilld.com-0ea5e9?style=flat-square&logo=safari&logoColor=white" alt="Website" /></a>
+  <img src="https://img.shields.io/badge/Status-Active%20Development-22c55e?style=flat-square" alt="Status" />
+  <img src="https://img.shields.io/badge/License-GPLv3-6366f1?style=flat-square" alt="License" />
+</p>
 
 ---
 
-## Tech Stack
+## 🥬 Our Mission
 
-| Component | Technology |
+Every year, the United States discards **~80 million tons** of food — roughly 40% of the total supply — while millions face food insecurity. Most of that waste happens in the gap between distributors: perfectly good product expires on warehouse floors because there's no fast, trusted way to move short-dated inventory between businesses.
+
+**Fulfill'd** is a B2B marketplace that connects perishable food distributors through an anonymized trading platform. Vendors list short-dated inventory. Buyers find it by category, proximity, and expiry window. Products are surfaced **nearest-expiry-first**, ensuring the food most at risk of waste gets moved first.
+
+Vendor identity stays hidden until payment clears — eliminating pricing bias, protecting supplier relationships, and letting the product sell on merit.
+
+## 🏗️ What We're Building
+
+| | |
 |---|---|
-| Framework | Frappe v16.x + ERPNext v16.9.0 |
-| Database | MariaDB 10.6+ |
-| Cache/Queue | Redis 7.x |
-| Payments | Stripe Connect (via Frappe Payments) |
-| Containers | Podman (rootless) |
-| Cloud | AWS EC2 + S3 |
-| Email | AWS SES |
-| SSL | Let's Encrypt |
+| **Anonymized Marketplace** | Vendor identity revealed only after payment confirms |
+| **FIFO by Expiry** | Products surfaced nearest-expiry-first to maximize waste reduction |
+| **15-Minute Cart Hold** | Inventory reserved instantly — no double-selling, no stale carts |
+| **Stripe Connect** | Marketplace payment splits with transparent transaction fees |
+| **ERP Integration** | Read-only sync from vendor systems (Canopy, MYOB) — no write-back risk |
+| **Full White-Label** | Our own brand, end to end — no third-party branding visible |
+| **Mobile-First PWA** | Save-to-homescreen, works on any device, no app store needed |
 
----
+## 🧰 Tech Stack
 
-## Repository Structure
+<p align="center">
+  <img src="https://img.shields.io/badge/Frappe-v16-0089FF?style=flat-square&logo=python&logoColor=white" alt="Frappe" />
+  <img src="https://img.shields.io/badge/ERPNext-v16.9-0089FF?style=flat-square&logo=python&logoColor=white" alt="ERPNext" />
+  <img src="https://img.shields.io/badge/MariaDB-10.6+-003545?style=flat-square&logo=mariadb&logoColor=white" alt="MariaDB" />
+  <img src="https://img.shields.io/badge/Redis-7.x-DC382D?style=flat-square&logo=redis&logoColor=white" alt="Redis" />
+  <img src="https://img.shields.io/badge/Stripe-Connect-635BFF?style=flat-square&logo=stripe&logoColor=white" alt="Stripe" />
+  <img src="https://img.shields.io/badge/Docker-Podman-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/AWS-EC2%20%2B%20S3-FF9900?style=flat-square&logo=amazonaws&logoColor=white" alt="AWS" />
+</p>
 
-```
-fulfilld/
-├── .agent/workflows/         # Development workflows
-├── .github/workflows/        # CI/CD
-├── docs/
-│   ├── original/             # Preserved 2020-2021 documentation
-│   │   ├── core/             # Business docs, data model, architecture
-│   │   ├── workflows/        # Customer, supplier, partner setup workflows
-│   │   ├── pitch-decks/      # Pitch deck versions v1-v3
-│   │   └── screenshots/      # Reference screenshots
-│   └── architecture/         # Technical architecture docs
-├── docker/
-│   ├── Containerfile         # Multi-stage production build
-│   ├── apps.json             # Frappe apps to install
-│   ├── .env.example          # Environment template
-│   └── scripts/              # Backup/restore helpers
-├── fulfilld/                 # Custom Frappe App
-│   ├── hooks.py              # App hooks and branding
-│   ├── modules.txt           # Module definitions
-│   ├── marketplace/          # Core marketplace logic
-│   │   └── doctype/
-│   │       ├── marketplace_listing/
-│   │       ├── cart_item/
-│   │       ├── marketplace_order/
-│   │       └── transaction_fee/
-│   ├── vendor_management/    # Vendor onboarding
-│   ├── integration/          # ERP connectors
-│   ├── public/               # CSS/JS/images (white-label assets)
-│   ├── templates/            # Jinja templates (login, print formats)
-│   └── www/                  # Portal pages
-├── tests/                    # Unit tests
-├── setup.py                  # Python package config
-├── requirements.txt          # Python deps
-└── package.json              # Node deps
-```
+Built as a custom [Frappe](https://github.com/frappe/frappe) application extending [ERPNext](https://github.com/frappe/erpnext) — the world's most popular open-source ERP — white-labeled from the ground up.
 
----
+## 📦 Repositories
 
-## DocTypes
+| Repository | Description |
+|---|---|
+| [`fulfilld`](https://github.com/Fulfilld-Inc//fulfilld) | Core marketplace application — Frappe custom app, Docker configs, CI/CD |
+| [`fulfilld-docs`](https://github.com/Fulfilld-Inc//fulfilld-docs) | External documentation — user guides, API reference, onboarding *(coming soon)* |
 
-| DocType | Module | Purpose |
+## 🗺️ Roadmap
+
+| Phase | Timeline | Milestone |
 |---|---|---|
-| **Marketplace Listing** | Marketplace | Anonymized inventory listing with FIFO expiry |
-| **Cart Item** | Marketplace | 15-minute cart hold/reservation |
-| **Marketplace Order** | Marketplace | Order lifecycle: placed → delivered → completed |
-| **Transaction Fee** | Marketplace | Fee calculation and recording |
-| **Vendor Profile** | Vendor Management | Vendor onboarding and config |
-| **ERP Connector** | Integration | Canopy/MYOB API configuration |
+| **0 — Foundation** | Weeks 1–2 | Cloud infrastructure, containerized ERPNext, backups |
+| **1 — Core + White-Label** | Weeks 3–6 | All apps installed, Stripe live, full branding |
+| **2 — Customization** | Weeks 7–12 | Marketplace logic, vendor/buyer portals, custom app |
+| **3 — Integrations** | Weeks 13–16 | Canopy API, barcode scanning, analytics |
+| **4 — Pilot** | Weeks 17–20 | 5 Portland-area vendors live on platform |
 
----
-
-## Quick Start (Development)
-
-```bash
-# 1. Clone
-git clone https://github.com/Archimedes-Solutions/fulfilld.git
-cd fulfilld
-
-# 2. Set up Frappe development environment (see .agent/workflows/dev-environment.md)
-
-# 3. Inside Frappe container:
-bench get-app fulfilld /path/to/this/repo
-bench --site fulfilld.localhost install-app fulfilld
-bench start
-```
-
-See [`.agent/workflows/dev-environment.md`](.agent/workflows/dev-environment.md) for full setup instructions.
-
----
-
-## Deployment Phases
-
-| Phase | Timeline | Key Deliverables |
-|---|---|---|
-| **0: Foundation** | Weeks 1-2 | Cloud infra, Podman, base ERPNext, backups |
-| **1: Core + White-Label** | Weeks 3-6 | All apps, Stripe, email, full branding |
-| **2: Customization** | Weeks 7-12 | Marketplace logic, portals, custom app |
-| **3: Integrations** | Weeks 13-16 | Canopy API, scanning, analytics, security |
-| **4: Pilot** | Weeks 17-20 | 5 Portland vendors live |
-
----
-
-## Team
+## 👥 Team
 
 | Role | Who |
 |---|---|
-| CEO/CRO | Bryan Thyken |
+| CEO / CRO | Bryan Thyken |
 | Acting CTO | Patrick Ryan |
 | Senior Engineer | Lucas Ragaglia |
 
+## 📫 Contact
+
+- **General:** TBD
+- **Engineering:** TBD
+- **Website:** TBD
+
 ---
+
+<p align="center">
+  <sub>🌱 Every transaction on Fulfill'd means less food in landfills and more food on tables.</sub>
+</p>
 
 ## License
 

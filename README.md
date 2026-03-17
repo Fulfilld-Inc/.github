@@ -73,7 +73,7 @@ Built as a custom [Frappe](https://github.com/frappe/frappe) application extendi
 | Role | Who |
 |---|---|
 | CEO / CRO | Bryan Thyken |
-| Acting CTO | Patrick Ryan |
+| CTO | Patrick Ryan |
 | Senior Engineer | Lucas Ragaglia |
 
 ## 📫 Contact

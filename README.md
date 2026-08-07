@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/Fulfill'd-Reducing%20Food%20Waste-22c55e?style=for-the-badge&labelColor=0f172a" alt="Fulfill'd — Reducing Food Waste" />
+  <img src="https://img.shields.io/badge/Fulfill'd-Reducing%20Food%20Waste-22c55e?style=for-the-badge&labelColor=0f172a" alt="Fulfill'd. Reducing Food Waste" />
 </p>
 
 <h1 align="center">Fulfill'd, Inc.</h1>
@@ -19,11 +19,11 @@
 
 ## 🥬 Our Mission
 
-Every year, the United States discards **~80 million tons** of food — roughly 40% of the total supply — while millions face food insecurity. Most of that waste happens in the gap between distributors: perfectly good product expires on warehouse floors because there's no fast, trusted way to move short-dated inventory between businesses.
+Every year, the United States discards **~80 million tons** of food, roughly 40% of the total supply, while millions face food insecurity. Most of that waste happens in the gap between distributors: perfectly good product expires on warehouse floors because there's no fast, trusted way to move short-dated inventory between businesses.
 
 **Fulfill'd** is a B2B marketplace that connects perishable food distributors through an anonymized trading platform. Vendors list short-dated inventory. Buyers find it by category, proximity, and expiry window. Products are surfaced **nearest-expiry-first**, ensuring the food most at risk of waste gets moved first.
 
-Vendor identity stays hidden until payment clears — eliminating pricing bias, protecting supplier relationships, and letting the product sell on merit.
+Vendor identity stays hidden until payment clears, eliminating pricing bias, protecting supplier relationships, and letting the product sell on merit.
 
 ## 🏗️ What We're Building
 
@@ -31,10 +31,10 @@ Vendor identity stays hidden until payment clears — eliminating pricing bias, 
 |---|---|
 | **Anonymized Marketplace** | Vendor identity revealed only after payment confirms |
 | **FIFO by Expiry** | Products surfaced nearest-expiry-first to maximize waste reduction |
-| **15-Minute Cart Hold** | Inventory reserved instantly — no double-selling, no stale carts |
+| **15-Minute Cart Hold** | Inventory reserved instantly, no double-selling, no stale carts |
 | **Stripe Connect** | Marketplace payment splits with transparent transaction fees |
-| **ERP Integration** | Read-only sync from vendor systems (Canopy, MYOB) — no write-back risk |
-| **Full White-Label** | Our own brand, end to end — no third-party branding visible |
+| **ERP Integration** | Read-only sync from vendor systems (Canopy, MYOB), no write-back risk |
+| **Full White-Label** | Our own brand, end to end, no third-party branding visible |
 | **Mobile-First PWA** | Save-to-homescreen, works on any device, no app store needed |
 
 ## 🧰 Tech Stack
@@ -49,24 +49,24 @@ Vendor identity stays hidden until payment clears — eliminating pricing bias, 
   <img src="https://img.shields.io/badge/AWS-EC2%20%2B%20S3-FF9900?style=flat-square&logo=amazonaws&logoColor=white" alt="AWS" />
 </p>
 
-Built as a custom [Frappe](https://github.com/frappe/frappe) application extending [ERPNext](https://github.com/frappe/erpnext) — the world's most popular open-source ERP — white-labeled from the ground up.
+Built as a custom [Frappe](https://github.com/frappe/frappe) application extending [ERPNext](https://github.com/frappe/erpnext), the world's most popular open-source ERP, white-labeled from the ground up.
 
 ## 📦 Repositories
 
 | Repository | Description |
 |---|---|
-| [`fulfilld`](https://github.com/Fulfilld-Inc//fulfilld) | Core marketplace application — Frappe custom app, Docker configs, CI/CD |
-| [`fulfilld-docs`](https://github.com/Fulfilld-Inc//fulfilld-docs) | External documentation — user guides, API reference, onboarding *(coming soon)* |
+| [`fulfilld`](https://github.com/Fulfilld-Inc//fulfilld) | Core marketplace application. Frappe custom app, Docker configs, CI/CD |
+| [`fulfilld-docs`](https://github.com/Fulfilld-Inc//fulfilld-docs) | External documentation, user guides, API reference, onboarding *(coming soon)* |
 
 ## 🗺️ Roadmap
 
 | Phase | Timeline | Milestone |
 |---|---|---|
-| **0 — Foundation** | Weeks 1–2 | Cloud infrastructure, containerized ERPNext, backups |
-| **1 — Core + White-Label** | Weeks 3–6 | All apps installed, Stripe live, full branding |
-| **2 — Customization** | Weeks 7–12 | Marketplace logic, vendor/buyer portals, custom app |
-| **3 — Integrations** | Weeks 13–16 | Canopy API, barcode scanning, analytics |
-| **4 — Pilot** | Weeks 17–20 | 5 Portland-area vendors live on platform |
+| **0. Foundation** | Weeks 1–2 | Cloud infrastructure, containerized ERPNext, backups |
+| **1. Core + White-Label** | Weeks 3–6 | All apps installed, Stripe live, full branding |
+| **2. Customization** | Weeks 7–12 | Marketplace logic, vendor/buyer portals, custom app |
+| **3. Integrations** | Weeks 13–16 | Canopy API, barcode scanning, analytics |
+| **4. Pilot** | Weeks 17–20 | 5 Portland-area vendors live on platform |
 
 ## 👥 Team
 
@@ -90,7 +90,7 @@ Built as a custom [Frappe](https://github.com/frappe/frappe) application extendi
 
 ## License
 
-GNU General Public License v3.0 — see [LICENSE](LICENSE).
+GNU General Public License v3.0, see [LICENSE](LICENSE).
 
 Built on [Frappe Framework](https://github.com/frappe/frappe) and [ERPNext](https://github.com/frappe/erpnext).
 
